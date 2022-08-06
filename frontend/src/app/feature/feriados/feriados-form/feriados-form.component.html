@@ -1,0 +1,63 @@
+<div class="grid justify-center mt-4">
+    <div class="card shadow-2xl shadow-black">
+        <div class="card-body">
+            <div class="card-title">
+                Dias <span class="text-primary">Feriados </span>
+            </div>
+            <div class="divider"> </div>
+            <div class="grid">
+                <label for="">Inicio del Feriado</label>
+                <input class="input input-primary" name="" id="" type="date" [(ngModel)]="currentEntity.beginning">
+
+                <label for="">Finalizar el Feriado</label>
+                <input class="input input-primary" name="" id="" type="date" [(ngModel)]="currentEntity.culmination">
+
+                <label for="">Descripcion:</label>
+                <input class="input input-primary" name="" id="" type="text" [(ngModel)]="currentEntity.description">
+
+                <label for="">Día de Creación:</label>
+                <input class="input input-primary" name="" id="" type="text" type="time zone"
+                    [ngModel]="currentEntity.created">
+
+                <label for="">Fecha Creacion</label>
+                <input class="input input-secondary" type="date" [(ngModel)]="currentEntity.created">
+
+                <label class="label cursor-pointer justify-start">
+                    <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
+                    <span class="label-text ml-2">Habilitado</span>
+                </label>
+
+            </div>
+            <div class="card-actions">
+                <button class="btn btn-primary btm-nav-xs" (click)="save()">Guardar</button>
+                <button class="btn btm-nav-xs">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="divider"> </div>
+
+    <div class="card card-compact shadow-2xl shadow-black bg-red-300 ">
+        <div class="card-body">
+            <div class="card-title">Precaución</div>
+            <p>Si elimina el registro no prodrá recuperarlo</p>
+            <div class="card-actions">
+                <label for="my-modal-6" class="btn modal-button btn-secondary btn-xs">Eliminar</label>
+
+                <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                <div class="modal modal-bottom sm:modal-middle">
+                    <div class="modal-box">
+                        <h3 class="font-bold text-lg">Por favor confirme la eliminación</h3>
+                        <p class="py-4">No se podrán revertir los cambios
+                        </p>
+                        <div class="modal-action">
+                            <label for="my-modal-6" class="btn btn-info " (click)="deleteById()">Confirmar</label>
+                            <label for="my-modal-6" class="btn btn-info">Cancelar</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
