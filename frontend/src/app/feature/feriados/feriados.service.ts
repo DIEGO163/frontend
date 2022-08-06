@@ -16,7 +16,7 @@ export class FeriadosService {
     headers: new HttpHeaders({"Content-Type":"application/json"})
   }
 
-  private url: string = "http://localhost:8080/api/holiday";
+  private url: string = "http://localhost:8080/api/feriados";
 
   public save(feriados: Feriados): Observable<Feriados>{
     return this.http.post<Feriados>(this.url+"/save",feriados, this.httpOption);
