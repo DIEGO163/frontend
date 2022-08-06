@@ -29,4 +29,8 @@ export class RolService {
   public deleteById(id: number): Observable<Rol>{
    return this.http.delete<Rol>(this.url+"/deleteById/"+id, this.httpOptions);
   }
+
+  public findAll():Observable<Rol[]>{
+    return this.http.get<Rol[]>(this.url+"/findAll", this.httpOptions);
+  }
 }

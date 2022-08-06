@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoriaService } from '../../categoria/categoria.service';
 import { Feriados } from '../feriados';
 import { FeriadosService } from '../feriados.service';
 
@@ -12,7 +13,8 @@ export class FeriadosFormComponent implements OnInit {
 
   constructor(
     private feriadosService: FeriadosService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private categoriaService: CategoriaService
 
   ) { }
 
@@ -23,7 +25,9 @@ export class FeriadosFormComponent implements OnInit {
     description: "",
     enabled: true,
     created: new Date(),
-    updated:new Date()
+    updated:new Date(),
+    rolId:0,
+    feriadosCategoria:[]
   };
 
   ngOnInit(): void {
@@ -48,6 +52,8 @@ export class FeriadosFormComponent implements OnInit {
           enabled: true,
           created: new Date(),
           updated: new Date(),
+          rolId:0,
+          feriadosCategoria:[]
         }
       }
     )
@@ -55,10 +61,25 @@ export class FeriadosFormComponent implements OnInit {
 
  
   
-  findById(id: number): void{
+  // findById(id: number): void{
+  //   this.feriadosService.findById(id).subscribe(
+  //     (response) =>{
+  //       this.currentEntity = response;
+  //     }
+  //   )
+  // }
+
+  findById(id: number):void {
     this.feriadosService.findById(id).subscribe(
-      (response) =>{
+      (response) => {
         this.currentEntity = response;
+        this.currentEntity.feriadosCategoria.forEach(
+          (auth) => {
+            this.categoriaService.findById(auth.categoriaId).subscribe(
+              (item) => auth.name = item.name
+            )
+          }
+        )
       }
     )
   }
@@ -70,6 +91,13 @@ export class FeriadosFormComponent implements OnInit {
         //redireccionar ....
       }
     )
+  }
+
+  removeAuthority(categoriaId: number):void {
+    this.currentEntity.feriadosCategoria =
+    this.currentEntity.feriadosCategoria.filter(
+      (item) => item.categoriaId != categoriaId
+    );
   }
 
 }

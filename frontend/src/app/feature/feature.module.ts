@@ -5,6 +5,11 @@ import { FeatureRoutingModule } from "./feature-routing.module";
 import { FeriadosFormComponent } from "./feriados/feriados-form/feriados-form.component";
 import { RolFormComponent } from './rol/rol-form/rol-form.component';
 import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component';
+import { FeriadosListComponent } from './feriados/feriados-list/feriados-list.component';
+import { FeriadosToolbarComponent } from './feriados/feriados-toolbar/feriados-toolbar.component';
+import { FeriadosSearchComponent } from './feriados/feriados-search/feriados-search.component';
+import { CategoriaSearchComponent } from './categoria/categoria-search/categoria-search.component';
+import { RolComboboxComponent } from './rol/rol-combobox/rol-combobox.component';
 
 
 
@@ -13,6 +18,11 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
         FeriadosFormComponent,
         RolFormComponent,
         CategoriaFormComponent,
+        FeriadosListComponent,
+        FeriadosToolbarComponent,
+        FeriadosSearchComponent,
+        CategoriaSearchComponent,
+        RolComboboxComponent,
 
   ],
     imports: [
